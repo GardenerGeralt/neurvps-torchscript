@@ -63,16 +63,18 @@ eval.py                         # script for evaluating a dataset from a checkpo
 
 ### Installation
 
-For the ease of reproducibility, you are suggested to install [miniconda](https://docs.conda.io/en/latest/miniconda.html) (or [anaconda](https://www.anaconda.com/distribution/) if you prefer) before following executing the following commands.
+For the ease of reproducibility, you are suggested to install [miniconda](https://docs.conda.io/en/latest/miniconda.html) (or [anaconda](https://www.anaconda.com/distribution/) if you prefer) on a Linux environment before following executing the following commands.
+
+Note that as of 2025/08/08, pytorch deprecated the support of conda.  The old instruction up to CUDA 12.4 can still be found in https://pytorch.org/get-started/previous-versions/.
 
 ```bash
 git clone https://github.com/zhou13/neurvps
 cd neurvps
 conda create -y -n neurvps
 source activate neurvps
-# Replace cudatoolkit=10.1 with your CUDA version: https://pytorch.org/get-started/
-conda install -y pytorch cudatoolkit=10.1 -c pytorch
-conda install -y tensorboardx gdown -c conda-forge
+# Replace pytorch installation with the matching CUDA version in https://pytorch.org/get-started/previous-versions/
+conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.4 -c pytorch -c nvidia
+conda install -y tensorboardx -c conda-forge
 conda install -y pyyaml docopt matplotlib scikit-image opencv tqdm
 mkdir data logs
 ```
