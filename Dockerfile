@@ -37,4 +37,5 @@ RUN --mount=type=cache,target=/root/.cache \
     conda activate neurvps && \
     conda install pytorch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 pytorch-cuda=12.4 -c pytorch -c nvidia && \
     conda install -y tensorboardx -c conda-forge && \
-    conda install -y pyyaml docopt matplotlib scikit-image opencv tqdm
+    conda install -y pyyaml docopt matplotlib scikit-image opencv tqdm && \
+    conda install mkl=2023.1.0 ninja
